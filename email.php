@@ -5,6 +5,8 @@ if (isset($_POST['email']))
     $email_to = "chantillyhsscio@gmail.com";
     $email_subject = $_POST['subject'];
 
+    $bad = "false";
+
     function eh()
     {
         //TODO : make fancy error page
@@ -16,6 +18,7 @@ if (isset($_POST['email']))
         !isset($_POST['subject']) ||
         !isset($_POST['message']))
     {
+        $bad = "true";
         eh();
     }
 
@@ -26,17 +29,20 @@ if (isset($_POST['email']))
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
     if (!preg_match($email_exp, $email))
     {
+        $bad = "true";
         eh();
     }
 
     $name_exp = "/^[A-Za-z .'-]+$/";
     if (!preg_match($name_exp, $name))
     {
+        $bad = "true";
         eh();
     }
 
     if (strlen(message) < 2)
     {
+        $bad = "true";
         eh();
     }
 
@@ -55,6 +61,7 @@ if (isset($_POST['email']))
 
     @mail($email_to, $subject, $message, $headers);
 
+    echo $bad;
     //header('Location: http://php2-chantillyscio.rhcloud.com/');
     echo "success!";
 } else {
