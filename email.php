@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', 'On');
+
 require 'PHPMailer/PHPMailerAutoload.php';
 
 function send_mail($email,$subject,$msg) {
@@ -111,6 +113,11 @@ if (isset($_POST['email']))
     if (!$mail->send())
     {
         $bad = "true";
+    }
+    else
+    {
+        $bad = "false";
+        echo "it worked!";
     }
     
 
