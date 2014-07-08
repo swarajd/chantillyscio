@@ -168,7 +168,7 @@
         <div>
             <div class="row">
                 <div class="12u">
-                    <form method="post" action="#">
+                    <form method="post" action="email.php">
                         <div>
                             <div class="row half">
                                 <div class="6u">
