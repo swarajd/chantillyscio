@@ -94,7 +94,7 @@ if (isset($_POST['email']))
      */
 
     
-    $mail = new PHPMailer;
+    $mail = new PHPMailer();
 
     $mail->isSMTP();
     $mail->Host = "smtp.mailgun.org";
