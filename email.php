@@ -55,9 +55,11 @@ if (isset($_POST['email']))
 
     @mail($email_to, $subject, $message, $headers);
 
-    header('Location: http://php2-chantillyscio.rhcloud.com/');
+    //header('Location: http://php2-chantillyscio.rhcloud.com/');
+    echo "success!";
 } else {
-    header('Location: http://php2-chantillyscio.rhcloud.com/');
+    //header('Location: http://php2-chantillyscio.rhcloud.com/');
+    echo "failed";
 }
 
 ?>
