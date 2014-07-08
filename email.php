@@ -2,8 +2,29 @@
 
 //require 'PHPMailer/PHPMailerAutoload.php';
 
+function send_mail($email,$subject,$msg) {
+    $api_key="key-6y8lrevf0hz8zb2ntvflkvv7yir2j0o8";/* Api Key got from https://mailgun.com/cp/my_account */
+    $domain ="php2-chantillyscio.rhcloud.com";/* Domain Name you given to Mailgun */
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    curl_setopt($ch, CURLOPT_USERPWD, 'api:'.$api_key);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_URL, 'https://api.mailgun.net/v2/'.$domain.'/messages');
+    curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+        'from' => 'Open <postmaster@php2-chantillyscio.rhcloud.com>',
+        'to' => $email,
+        'subject' => $subject,
+        'html' => $msg
+    ));
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
+
 if (isset($_POST['email']))
 {
+
     $email_to = "chantillyhsscio@gmail.com";
     $email_subject = $_POST['subject'];
 
@@ -63,7 +84,7 @@ if (isset($_POST['email']))
 
     if (!mail($email_to, $subject, $message, $headers))
     {
-     $bad = "true";
+        $bad = "true";
     }
 
     /*
@@ -91,6 +112,8 @@ if (isset($_POST['email']))
         $bad = "true";
     }
      */
+
+    send_mail($email_to, $subject, $message);
 
     echo $bad . "\n";
     //header('Location: http://php2-chantillyscio.rhcloud.com/');
