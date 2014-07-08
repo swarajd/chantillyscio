@@ -15,7 +15,8 @@ function send_mail($email,$subject,$msg) {
         'from' => 'Open <postmaster@php2-chantillyscio.rhcloud.com>',
         'to' => $email,
         'subject' => $subject,
-        'html' => $msg
+        'html' => $msg,
+        'text' => $msg
     ));
     $result = curl_exec($ch);
     curl_close($ch);
