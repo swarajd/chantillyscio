@@ -57,9 +57,12 @@ if (isset($_POST['email']))
     $subject = clean_string($subject);
     $message = clean_string($subject);
 
-    $headers = 'From: '.$email."\r\n".
+    $headers = 'From: '.$email."\r\n";
 
-    mail($email_to, $subject, $message, $headers);
+    if (!mail($email_to, $subject, $message, $headers))
+    {
+     $bad = "true";
+    }
 
     echo $bad;
     //header('Location: http://php2-chantillyscio.rhcloud.com/');
