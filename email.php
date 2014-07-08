@@ -113,7 +113,7 @@ if (isset($_POST['email']))
     }
      */
 
-    send_mail($email_to, $subject, $message);
+    echo send_mail($email_to, $subject, $message);
 
     echo $bad . "\n";
     //header('Location: http://php2-chantillyscio.rhcloud.com/');
