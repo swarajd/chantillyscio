@@ -1,6 +1,6 @@
 <?php
 
-require 'PHPMailer/PHPMailerAutoload.php';
+//require 'PHPMailer/PHPMailerAutoload.php';
 
 if (isset($_POST['email']))
 {
@@ -71,6 +71,7 @@ if (isset($_POST['email']))
      * lets try PHPMailer
      */
 
+    /*
     $mail = new PHPMailer;
 
     $mail->isSMTP();
@@ -89,6 +90,7 @@ if (isset($_POST['email']))
     {
         $bad = "true";
     }
+     */
 
     echo $bad . "\n";
     //header('Location: http://php2-chantillyscio.rhcloud.com/');
