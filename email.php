@@ -1,6 +1,6 @@
 <?php
 
-//require 'PHPMailer/PHPMailerAutoload.php';
+require 'PHPMailer/PHPMailerAutoload.php';
 
 function send_mail($email,$subject,$msg) {
     $api_key="key-6y8lrevf0hz8zb2ntvflkvv7yir2j0o8";/* Api Key got from https://mailgun.com/cp/my_account */
@@ -93,7 +93,7 @@ if (isset($_POST['email']))
      * lets try PHPMailer
      */
 
-    /*
+    
     $mail = new PHPMailer;
 
     $mail->isSMTP();
@@ -112,9 +112,9 @@ if (isset($_POST['email']))
     {
         $bad = "true";
     }
-     */
+    
 
-    echo send_mail($email_to, $subject, $message);
+    //echo send_mail($email_to, $subject, $message);
 
     echo $bad . "\n";
     //header('Location: http://php2-chantillyscio.rhcloud.com/');
