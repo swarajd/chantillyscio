@@ -59,7 +59,7 @@ if (isset($_POST['email']))
 
     $headers = 'From: '.$email."\r\n".
 
-    @mail($email_to, $subject, $message, $headers);
+    mail($email_to, $subject, $message, $headers);
 
     echo $bad;
     //header('Location: http://php2-chantillyscio.rhcloud.com/');
