@@ -1,8 +1,9 @@
 <?php
 
 ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 
-require 'PHPMailer/PHPMailerAutoload.php';
+require "PHPMailer/PHPMailerAutoload.php";
 
 function send_mail($email,$subject,$msg) {
     $api_key="key-6y8lrevf0hz8zb2ntvflkvv7yir2j0o8";/* Api Key got from https://mailgun.com/cp/my_account */
